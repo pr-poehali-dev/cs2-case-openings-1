@@ -1,4 +1,201 @@
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --cs-blue: #4b69ff;
+  --cs-purple: #8847ff;
+  --cs-pink: #d32ee6;
+  --cs-red: #eb4b4b;
+  --cs-gold: #ffb630;
+  
+  --cs-gamer-dark: #0e1521;
+  --cs-gamer-darker: #080f19;
+  --cs-gamer-secondary: #1a2633;
+  --cs-gamer-highlight: #223148;
+  --cs-gamer-glow: #4b53ff;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px var(--cs-gamer-glow);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px var(--cs-gamer-glow), 0 0 30px var(--cs-gamer-glow);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  min-width: 100%;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.animate-shine {
+  animation: shine 5s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.gamer-title {
+  font-family: 'Rajdhani', 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: 0 0 10px var(--cs-gamer-glow), 0 0 20px var(--cs-gamer-glow);
+}
+
+.shine-gradient {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  pointer-events: none;
+}
+
+/* Стили обрамления в зависимости от редкости */
+.rarity-border-blue {
+  border-color: var(--cs-blue);
+  box-shadow: 0 0 5px var(--cs-blue);
+}
+
+.rarity-border-purple {
+  border-color: var(--cs-purple);
+  box-shadow: 0 0 5px var(--cs-purple);
+}
+
+.rarity-border-pink {
+  border-color: var(--cs-pink);
+  box-shadow: 0 0 5px var(--cs-pink);
+}
+
+.rarity-border-red {
+  border-color: var(--cs-red);
+  box-shadow: 0 0 5px var(--cs-red);
+}
+
+.rarity-border-gold {
+  border-color: var(--cs-gold);
+  box-shadow: 0 0 8px var(--cs-gold);
+}
+
+/* Цвета редкости */
+.text-cs-blue {
+  color: var(--cs-blue);
+}
+
+.text-cs-purple {
+  color: var(--cs-purple);
+}
+
+.text-cs-pink {
+  color: var(--cs-pink);
+}
+
+.text-cs-red {
+  color: var(--cs-red);
+}
+
+.text-cs-gold {
+  color: var(--cs-gold);
+}
+
+/* Стилизация киберпанк-карточек */
+.cyber-card {
+  position: relative;
+  background-color: var(--cs-gamer-dark);
+  border: 2px solid var(--cs-gamer-highlight);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: var(--cs-gamer-glow);
+  box-shadow: 0 0 15px rgba(75, 83, 255, 0.4);
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--cs-gamer-glow);
+  border-left: 2px solid var(--cs-gamer-glow);
+}
+
+.cyber-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--cs-gamer-glow);
+  border-right: 2px solid var(--cs-gamer-glow);
+}
+
+/* Стилизация киберпанк-кнопок */
+.cyber-button {
+  background-color: var(--cs-gamer-glow) !important;
+  color: white !important;
+  border: none !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 20px var(--cs-gamer-glow) !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -17,57 +17,83 @@ const Navbar: React.FC = () => {
 
   return (
     <header className="bg-cs-gamer-dark border-b border-cs-gamer-highlight sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center h-20">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-12 h-12 bg-gradient-to-br from-cs-gamer-glow to-cs-gamer-accent rounded-full flex items-center justify-center shadow-neon-blue group-hover:animate-pulse">
-            <Icon name="Briefcase" className="text-white" size={24} />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cs-gamer-glow to-cs-gamer-accent">CS2Cases</span>
-            <span className="text-xs text-gray-400">Legendary skins</span>
-          </div>
+
+  const menuItems = [
+    { label: 'Кейсы', href: '/', icon: 'Package' },
+    { label: 'Апгрейд', href: '/upgrade', icon: 'ArrowUpCircle' },
+    { label: 'Контракты', href: '/contracts', icon: 'FileContract' },
+    { label: 'Бонусы', href: '/bonus', icon: 'Gift' },
+    { label: 'Профиль', href: '/profile', icon: 'User' },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-cs-gamer-highlight bg-cs-gamer-dark/95 backdrop-blur supports-[backdrop-filter]:bg-cs-gamer-dark/80">
+      <div className="container flex h-16 items-center px-4">
+        <Link to="/" className="mr-6 flex items-center gap-2 transition-opacity hover:opacity-80">
+          <Icon name="Zap" className="h-6 w-6 text-cs-gamer-glow" />
+          <span className="gamer-title text-xl hidden sm:inline-block">CS2 CASES</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="flex items-center gap-2 text-gray-400 hover:text-cs-gamer-glow transition-colors group py-2"
+        <nav className="hidden md:flex items-center gap-6 mx-6">
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.label}
+              to={item.href}
+              className={({ isActive }) => 
+                cn(
+                  "flex items-center gap-1 text-sm transition-colors hover:text-cs-gamer-glow relative py-2",
+                  isActive 
+                    ? "text-cs-gamer-glow after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-cs-gamer-glow"
+                    : "text-muted-foreground hover:text-white"
+                )
+              }
             >
-              <Icon name={item.icon} size={18} className="group-hover:scale-110 transition-transform" />
-              <span className="font-medium">{item.name}</span>
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cs-gamer-glow scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-            </Link>
+              <Icon name={item.icon as any} size={16} />
+              <span>{item.label}</span>
+            </NavLink>
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <div className="bg-cs-gamer-secondary rounded-lg px-4 py-2 flex items-center gap-2 border border-cs-gamer-highlight">
-            <Icon name="Wallet" size={18} className="text-cs-gold animate-pulse" />
-            <span className="font-bold text-white">0 ₽</span>
-          </div>
-          <Button className="cyber-button">
-            <Icon name="Plus" size={18} className="mr-1" />
-            <span>Пополнить</span>
+        <div className="ml-auto flex items-center gap-2">
+          <Button variant="outline" size="sm" className="border-cs-gamer-highlight text-white hover:bg-cs-gamer-highlight hover:text-white">
+            <Icon name="LogIn" className="mr-2 h-4 w-4" />
+            Войти
           </Button>
-          <Button 
-            variant="outline" 
-            size="icon" 
-            className="lg:hidden border-cs-gamer-highlight text-white hover:bg-cs-gamer-secondary"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <Icon name={mobileMenuOpen ? "X" : "Menu"} />
+          <Button variant="default" size="sm" className="cyber-button">
+            <Icon name="Wallet" className="mr-2 h-4 w-4" />
+            Пополнить
           </Button>
         </div>
+        
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="ml-2 md:hidden border-cs-gamer-highlight">
+              <Icon name="Menu" className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="bg-cs-gamer-dark border-cs-gamer-highlight">
+            <SheetHeader className="mb-4">
+              <SheetTitle className="gamer-title text-white">CS2 CASES</SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col gap-3">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="flex items-center gap-2 p-2 rounded-lg text-white hover:bg-cs-gamer-highlight"
+                >
+                  <Icon name={item.icon as any} size={16} className="text-cs-gamer-glow" />
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
-      
-      {/* Мобильное меню */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-cs-gamer-secondary border-t border-cs-gamer-highlight animate-accordion-down">
-          <div className="container mx-auto py-4 px-4">
-            <nav className="flex flex-col space-y-4">
-              {navigation.map((item) => (
+    </header>
+  );
+
                 <Link
                   key={item.name}
                   to={item.path}
