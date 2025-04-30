@@ -1,115 +1,137 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 15%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
-
-    --primary: 215 100% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 15%;
-
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 240 67% 62%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 100% 59%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 88%;
-    --input: 0 0% 85%;
-    --ring: 215 100% 50%;
-
+    --background: 225 30% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 228 25% 12%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 228 25% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 252 100% 65%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 230 30% 16%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 30% 20%;
+    --muted-foreground: 215 20% 75%;
+    
+    --accent: 228 90% 55%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 252 100% 65%;
+    
     --radius: 0.5rem;
   }
-
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 215 100% 50%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 240 67% 62%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 100% 59%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 215 100% 50%;
-  }
 }
-
+ 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', sans-serif;
+    @apply bg-cs-gamer-dark text-foreground bg-cyber-grid bg-[size:50px_50px];
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-.rarity-border-blue {
-  @apply border-cs-blue;
-  box-shadow: 0 0 10px theme('colors.cs.blue');
-}
-
-.rarity-border-purple {
-  @apply border-cs-purple;
-  box-shadow: 0 0 10px theme('colors.cs.purple');
-}
-
-.rarity-border-pink {
-  @apply border-cs-pink;
-  box-shadow: 0 0 10px theme('colors.cs.pink');
-}
-
-.rarity-border-red {
-  @apply border-cs-red;
-  box-shadow: 0 0 10px theme('colors.cs.red');
-}
-
-.rarity-border-gold {
-  @apply border-cs-gold;
-  box-shadow: 0 0 12px theme('colors.cs.gold');
-}
-
-.shine-gradient {
-  background: linear-gradient(
-    90deg, 
-    rgba(255,255,255,0) 0%, 
-    rgba(255,255,255,0.8) 50%, 
-    rgba(255,255,255,0) 100%
-  );
-  background-size: 200% 100%;
+@layer components {
+  /* Стилизация скроллбаров для геймерского интерфейса */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-cs-gamer-secondary;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cs-gamer-glow rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+  
+  /* Стили рамок для редкости предметов */
+  .rarity-border-blue {
+    @apply border-cs-blue shadow-[0_0_10px_rgba(75,105,255,0.5)];
+  }
+  
+  .rarity-border-purple {
+    @apply border-cs-purple shadow-[0_0_10px_rgba(136,71,255,0.5)];
+  }
+  
+  .rarity-border-pink {
+    @apply border-cs-pink shadow-[0_0_10px_rgba(211,44,230,0.5)];
+  }
+  
+  .rarity-border-red {
+    @apply border-cs-red shadow-[0_0_10px_rgba(235,75,75,0.5)];
+  }
+  
+  .rarity-border-gold {
+    @apply border-cs-gold shadow-[0_0_10px_rgba(228,174,57,0.5)];
+  }
+  
+  /* Кастомные стили для геймерского интерфейса */
+  .cyber-card {
+    @apply bg-cs-gamer-secondary rounded-lg border border-cs-gamer-highlight 
+           relative overflow-hidden transition-all duration-300 
+           hover:shadow-neon-blue;
+  }
+  
+  .cyber-button {
+    @apply relative bg-primary hover:bg-primary/90 text-white font-bold 
+           py-3 px-6 rounded-md overflow-hidden transition-all duration-300
+           shadow-lg hover:shadow-neon-blue;
+  }
+  
+  .cyber-button::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-white/10 opacity-0 
+           transition-opacity duration-300;
+  }
+  
+  .cyber-button:hover::before {
+    @apply opacity-100;
+  }
+  
+  .shine-gradient {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+  }
+  
+  .gamer-title {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cs-neon-blue via-cs-neon-pink to-cs-neon-green
+           font-extrabold;
+  }
+  
+  .gamer-border {
+    @apply border border-cs-gamer-highlight relative after:absolute after:inset-0 
+           after:border after:border-cs-gamer-glow/50 after:scale-105 after:opacity-0 
+           hover:after:opacity-100 after:transition-all;
+  }
+  
+  .neon-text {
+    @apply animate-neon-flicker font-bold;
+  }
 }

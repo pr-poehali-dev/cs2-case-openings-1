@@ -5,71 +5,140 @@ import Icon from "@/components/ui/icon";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-gray-100 py-8 mt-16">
+    <footer className="bg-cs-gamer-dark border-t border-cs-gamer-highlight pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-cs-blue rounded-full flex items-center justify-center">
+            <Link to="/" className="flex items-center gap-2 mb-6 inline-block">
+              <div className="w-10 h-10 bg-gradient-to-br from-cs-gamer-glow to-cs-gamer-accent rounded-full flex items-center justify-center">
                 <Icon name="Briefcase" className="text-white" size={20} />
               </div>
-              <span className="text-xl font-bold">CS2Cases</span>
+              <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cs-gamer-glow to-cs-gamer-accent">CS2Cases</span>
             </Link>
-            <p className="text-gray-500 text-sm">
-              Открывайте кейсы CS2 с уникальными животными-талисманами и получайте редкие скины!
+            <p className="text-gray-400 mb-4">
+              Лучший сайт для открытия кейсов CS2 с моментальными выплатами на ваш аккаунт Steam.
             </p>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Страницы</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-500 hover:text-primary text-sm">Главная</Link></li>
-              <li><Link to="/upgrade" className="text-gray-500 hover:text-primary text-sm">Апгрейд</Link></li>
-              <li><Link to="/contracts" className="text-gray-500 hover:text-primary text-sm">Контракты</Link></li>
-              <li><Link to="/profile" className="text-gray-500 hover:text-primary text-sm">Профиль</Link></li>
-              <li><Link to="/bonuses" className="text-gray-500 hover:text-primary text-sm">Бонусы</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Помощь</h3>
-            <ul className="space-y-2">
-              <li><Link to="/faq" className="text-gray-500 hover:text-primary text-sm">FAQ</Link></li>
-              <li><Link to="/terms" className="text-gray-500 hover:text-primary text-sm">Правила использования</Link></li>
-              <li><Link to="/privacy" className="text-gray-500 hover:text-primary text-sm">Политика конфиденциальности</Link></li>
-              <li><Link to="/support" className="text-gray-500 hover:text-primary text-sm">Поддержка</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Контакты</h3>
-            <div className="flex space-x-4 mb-4">
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Icon name="Instagram" size={20} />
+            <div className="flex space-x-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-cs-gamer-secondary flex items-center justify-center hover:bg-cs-gamer-highlight transition-colors">
+                <Icon name="Twitch" size={18} className="text-white" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Icon name="Twitter" size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-cs-gamer-secondary flex items-center justify-center hover:bg-cs-gamer-highlight transition-colors">
+                <Icon name="Youtube" size={18} className="text-white" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Icon name="Facebook" size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-cs-gamer-secondary flex items-center justify-center hover:bg-cs-gamer-highlight transition-colors">
+                <Icon name="Instagram" size={18} className="text-white" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Icon name="Youtube" size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-cs-gamer-secondary flex items-center justify-center hover:bg-cs-gamer-highlight transition-colors">
+                <Icon name="Twitter" size={18} className="text-white" />
               </a>
             </div>
-            <p className="text-gray-500 text-sm">
-              support@cs2cases.com
-            </p>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-bold mb-6 text-lg">Навигация</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="ChevronRight" size={14} className="mr-2" />
+                  Главная
+                </Link>
+              </li>
+              <li>
+                <Link to="/upgrade" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="ChevronRight" size={14} className="mr-2" />
+                  Апгрейд
+                </Link>
+              </li>
+              <li>
+                <Link to="/contracts" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="ChevronRight" size={14} className="mr-2" />
+                  Контракты
+                </Link>
+              </li>
+              <li>
+                <Link to="/profile" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="ChevronRight" size={14} className="mr-2" />
+                  Профиль
+                </Link>
+              </li>
+              <li>
+                <Link to="/bonuses" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="ChevronRight" size={14} className="mr-2" />
+                  Бонусы
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-bold mb-6 text-lg">Помощь</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="HelpCircle" size={14} className="mr-2" />
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="LifeBuoy" size={14} className="mr-2" />
+                  Поддержка
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="Book" size={14} className="mr-2" />
+                  Правила
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="Shield" size={14} className="mr-2" />
+                  Гарантии
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-cs-gamer-glow transition-colors inline-flex items-center">
+                  <Icon name="Phone" size={14} className="mr-2" />
+                  Контакты
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-white font-bold mb-6 text-lg">Способы оплаты</h3>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=VISA" alt="VISA" className="w-full" />
+              </div>
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=MC" alt="MasterCard" className="w-full" />
+              </div>
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=QIWI" alt="QIWI" className="w-full" />
+              </div>
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=WMZ" alt="WebMoney" className="w-full" />
+              </div>
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=YOO" alt="ЮMoney" className="w-full" />
+              </div>
+              <div className="bg-cs-gamer-secondary p-2 rounded-lg hover:bg-cs-gamer-highlight/30 transition-colors">
+                <img src="https://via.placeholder.com/40x20/171629/4B53FF?text=BTC" alt="Bitcoin" className="w-full" />
+              </div>
+            </div>
           </div>
         </div>
         
-        <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500">
-            © 2025 CS2Cases. Все права защищены.
+        <div className="pt-8 border-t border-cs-gamer-highlight flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+            &copy; 2025 CS2Cases. Все права защищены. Мы не связаны с Valve Corporation.
           </p>
-          <p className="text-xs text-gray-400 mt-2 md:mt-0">
-            CS2Cases не связан с Valve Corporation. Все торговые марки принадлежат их соответствующим владельцам.
-          </p>
+          <div className="flex space-x-4">
+            <a href="#" className="text-gray-400 hover:text-cs-gamer-glow text-sm">Политика конфиденциальности</a>
+            <a href="#" className="text-gray-400 hover:text-cs-gamer-glow text-sm">Пользовательское соглашение</a>
+          </div>
         </div>
       </div>
     </footer>
