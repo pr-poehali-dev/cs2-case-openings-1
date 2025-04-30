@@ -1,26 +1,30 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import Icon from "@/components/ui/icon";
+import MainLayout from "@/layout/MainLayout";
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Упс! Страница не найдена</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Вернуться на главную
-        </a>
+    <MainLayout>
+      <div className="min-h-[70vh] flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-8xl font-bold mb-4 text-cs-gold">404</h1>
+          <h2 className="text-2xl font-semibold mb-4">Страница не найдена</h2>
+          <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            Кажется, кейс, который вы ищете, не существует. 
+            Возможно, он был открыт кем-то другим или никогда не существовал.
+          </p>
+          <Button asChild>
+            <Link to="/">
+              <Icon name="Home" />
+              <span>Вернуться на главную</span>
+            </Link>
+          </Button>
+        </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
