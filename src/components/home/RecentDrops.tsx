@@ -30,7 +30,7 @@ const drops: Drop[] = [
     username: "GodLike95",
     avatar: "https://images.unsplash.com/photo-1616881545289-d04475acd4a1",
     skinName: "Crimson Web",
-    weaponName: "Bayonet",
+    weaponName: "Butterfly Knife",
     price: 89000,
     date: "5 мин назад",
     rarity: "red"
@@ -108,7 +108,7 @@ const RecentDrops: React.FC = () => {
               {drop.date}
             </div>
             
-            <div className="relative h-48 bg-cs-gamer-dark overflow-hidden">
+            <div className="relative h-[350px] w-full bg-cs-gamer-dark overflow-hidden">
               <img 
                 src={drop.avatar} 
                 alt={drop.username} 

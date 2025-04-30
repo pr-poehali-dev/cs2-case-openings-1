@@ -16,7 +16,7 @@ interface Case {
 const cases: Case[] = [
   {
     id: "1",
-    name: "AWP DRAGON LORE",
+    name: "DRAGON LORE",
     price: 1999,
     weapon: "AWP",
     imageUrl: "https://images.unsplash.com/photo-1598094460151-5f0d0e0875dd",
@@ -25,16 +25,16 @@ const cases: Case[] = [
   },
   {
     id: "2",
-    name: "BUTTERFLY CRIMSON",
+    name: "CRIMSON WEB",
     price: 2999,
-    weapon: "Нож",
+    weapon: "Butterfly Knife",
     imageUrl: "https://images.unsplash.com/photo-1616881545289-d04475acd4a1",
     rarity: "red",
     videoUrl: "https://i.imgur.com/z3ZzDdi.gif"
   },
   {
     id: "3",
-    name: "AK-47 ASIMOV",
+    name: "ASIIMOV",
     price: 899,
     weapon: "AK-47",
     imageUrl: "https://images.unsplash.com/photo-1605092676920-8ac5ae26c5c6",
@@ -43,7 +43,7 @@ const cases: Case[] = [
   },
   {
     id: "4",
-    name: "M4A4 HOWL",
+    name: "HOWL",
     price: 1499,
     weapon: "M4A4",
     imageUrl: "https://images.unsplash.com/photo-1624032545726-d9aba115af35",
@@ -52,9 +52,9 @@ const cases: Case[] = [
   },
   {
     id: "5",
-    name: "GLOVES FADE",
+    name: "FADE",
     price: 999,
-    weapon: "Перчатки",
+    weapon: "Specialist Gloves",
     imageUrl: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5",
     rarity: "purple",
     videoUrl: "https://thumbs.gfycat.com/GleefulGivingHogget-max-1mb.gif"
@@ -99,7 +99,7 @@ const CaseSlider: React.FC = () => {
                 onClick={() => setActiveCase(caseItem)}
               >
                 <div className="flex items-center gap-4">
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 overflow-hidden border-2 rarity-border-${caseItem.rarity}`}>
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center shrink-0 overflow-hidden border-2 rarity-border-${caseItem.rarity}`}>
                     <img 
                       src={caseItem.imageUrl} 
                       alt={caseItem.weapon}
@@ -122,7 +122,7 @@ const CaseSlider: React.FC = () => {
 
           <div className="lg:col-span-8 flex flex-col items-center">
             <div 
-              className={`relative w-80 h-80 mb-8 rounded-xl border-4 rarity-border-${activeCase.rarity} overflow-hidden`}
+              className={`relative w-[350px] h-[350px] mb-8 rounded-lg border-4 rarity-border-${activeCase.rarity} overflow-hidden`}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
